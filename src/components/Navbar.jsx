@@ -1,63 +1,89 @@
-import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-export default function Navbar(){
+import { useEffect, useState } from "react";
+
+import { Menu, Moon, Sun, X } from "lucide-react";
+
+export default function Navbar() {
+
+const [scrolled,setScrolled]=useState(false);
+
+const [dark,setDark]=useState(false);
+
+const [open,setOpen]=useState(false);
+
+useEffect(()=>{
+
+const handleScroll=()=>{
+
+setScrolled(window.scrollY>40);
+
+};
+
+window.addEventListener("scroll",handleScroll);
+
+return()=>window.removeEventListener("scroll",handleScroll);
+
+},[]);
+
+useEffect(()=>{
+
+document.documentElement.classList.toggle("dark",dark);
+
+},[dark]);
 
 return(
 
-<nav
-style={{
+<nav className={scrolled ? "navbar scrolled":"navbar"}>
 
-position:"sticky",
-top:0,
-background:"rgba(255,255,255,.9)",
-backdropFilter:"blur(12px)",
-padding:"18px 0",
-zIndex:1000,
-borderBottom:"1px solid #e5e7eb"
+<div className="nav-container">
 
-}}
+<a className="logo" href="/">
 
+<span>Explore</span> IT
+
+</a>
+
+<div className={open ? "menu open":"menu"}>
+
+<a href="#">Home</a>
+
+<a href="#services">Services</a>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<div className="actions">
+
+<button
+className="icon-btn"
+onClick={()=>setDark(!dark)}
 >
+
+{dark ? <Sun size={20}/> : <Moon size={20}/>}
+
+</button>
+
+<a
+href="#contact"
+className="consult-btn"
+>
+
+Book Consultation
+
+</a>
 
 <div
-className="container"
-
-style={{
-
-display:"flex",
-justifyContent:"space-between",
-alignItems:"center"
-
-}}
-
+className="mobile"
+onClick={()=>setOpen(!open)}
 >
 
-<h2>
+{open ? <X/> : <Menu/>}
 
-<span className="gradient-text">
-
-Explore IT
-
-</span>
-
- Consulting
-
-</h2>
-
-<div
-style={{
-display:"flex",
-gap:30
-}}
->
-
-<Link to="/">Home</Link>
-
-<Link to="/">Services</Link>
-
-<Link to="/">About</Link>
-
-<Link to="/">Contact</Link>
+</div>
 
 </div>
 
