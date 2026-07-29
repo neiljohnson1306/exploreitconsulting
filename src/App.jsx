@@ -1,25 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 
-export default function App(){
+export default function App() {
 
-return(
-
-<Layout>
-
-<Routes>
-
-<Route
-path="/"
-element={<Home/>}
-/>
-
-</Routes>
-
-</Layout>
-
-)
+    return (
+        <>
+            <Navbar />
+            <Home />
+            <Footer />
+        </>
+    );
 
 }
