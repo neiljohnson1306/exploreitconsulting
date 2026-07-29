@@ -72,3 +72,59 @@ a{
 .section{
   padding:100px 0;
 }
+
+.dark{
+
+background:#020617;
+
+}
+
+.dark body{
+
+background:#020617;
+
+color:white;
+
+}
+
+.dark .hero{
+
+background:
+
+linear-gradient(
+135deg,
+#020617,
+#0f172a
+);
+
+}
+
+.dark .glass-card{
+
+background:rgba(15,23,42,.7);
+
+color:white;
+
+}
+
+.dark .stat-card{
+
+background:#0f172a;
+
+color:white;
+
+}
+
+.dark .company{
+
+background:#0f172a;
+
+color:white;
+
+}
+
+.dark p{
+
+color:#cbd5e1;
+
+}
