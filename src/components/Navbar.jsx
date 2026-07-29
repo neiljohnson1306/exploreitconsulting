@@ -44,13 +44,17 @@ return(
 
 </a>
 
-<div className={open ? "menu open":"menu"}>
+<div className={open ? "menu open" : "menu"}>
 
 <a href="#">Home</a>
 
 <a href="#services">Services</a>
 
+<a href="#industries">Industries</a>
+
 <a href="#about">About</a>
+
+<a href="#process">Process</a>
 
 <a href="#contact">Contact</a>
 
